@@ -1,6 +1,6 @@
 [Unit]
 Description=OctoPi streamer selector
-Before=webcamd.service ffmpeg_hls.service nginx.service
+Before=webcamd.service ffmpeg_hls.service nginx.service webrtc.service
 
 [Service]
 Type=oneshot

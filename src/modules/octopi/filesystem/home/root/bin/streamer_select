@@ -6,8 +6,10 @@ set -e
 CONFIG_FILE=/boot/octopi.txt
 MJPEG_TYPE=mjpeg
 HLS_TYPE=hls
+WEBRTC_TYPE=webrtc
 MJPEG_SERVICE=webcamd.service
 HLS_SERVICE=ffmpeg_hls.service
+WEBRTC_SERVICE=webrtc.service
 DEFAULT_TYPE=${MJPEG_TYPE}
 FLAG_DIRECTORY=/etc/octopi_streamer
 
@@ -26,6 +28,8 @@ if [ "${camera_streamer}" = "${MJPEG_TYPE}" ]; then
     touch ${FLAG_DIRECTORY}/${MJPEG_TYPE}
 elif [ "${camera_streamer}" = "${HLS_TYPE}" ]; then
     touch ${FLAG_DIRECTORY}/${HLS_TYPE}
+elif [ "${camera_streamer}" = "${WEBRTC_TYPE}" ]; then
+    touch ${FLAG_DIRECTORY}/${WEBRTC_TYPE}
 else
     echo "Streamer type '${camera_streamer}' is not supported."
     exit 1
