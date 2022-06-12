@@ -125,6 +125,11 @@ EOT
     usermod -aG video ${WEBCAM_USER}
   fi
   
+  if [ "$OCTOPI_INCLUDE_WEBRTC" == "yes" ]
+  then
+    apt-get install -y --force-yes --no-install-recommends libavdevice-dev libavfilter-dev libopus-dev libvpx-dev pkg-config libsrtp2-dev
+  fi
+
   #CuraEngine
   if [ "$OCTOPI_INCLUDE_CURAENGINE" == "yes" ]
   then
